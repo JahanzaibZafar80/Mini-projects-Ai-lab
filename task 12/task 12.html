@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Diamond Prediction Form</title>
+
+    <style>
+        body {
+            background-color: #f0f4ff;       /* Light Blue Background */
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding-top: 50px;
+        }
+
+        .form-container {
+            width: 350px;
+            margin: auto;
+            padding: 25px;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0px 0px 12px rgba(0,0,0,0.2);
+        }
+
+        input, select {
+            width: 90%;
+            padding: 10px;
+            margin-top: 10px;
+            border-radius: 6px;
+            border: 1px solid #888;
+            font-size: 15px;
+        }
+
+        button {
+            margin-top: 15px;
+            padding: 10px 20px;
+            font-size: 16px;
+            background: #0066ff;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background: #004bcc;
+        }
+
+        .back-btn {
+            background: #444;
+        }
+
+        .back-btn:hover {
+            background: #222;
+        }
+    </style>
+
+</head>
+
+
+<body>
+
+    <div class="form-container">
+        <h2>💎 Enter Diamond Details</h2>
+
+        <form action="{{ url_for('predict') }}" method="POST">
+
+            <!-- CARAT -->
+            <input type="number" step="0.01" name="carat" placeholder="Carat" required>
+
+            <!-- CUT DROPDOWN -->
+            <select name="cut" required>
+                <option value="">Select Cut</option>
+                <option value="1">Fair</option>
+                <option value="2">Good</option>
+                <option value="3">Very Good</option>
+                <option value="4">Premium</option>
+                <option value="5">Ideal</option>
+            </select>
+
+            <!-- COLOR DROPDOWN (D-J) -->
+            <select name="color" required>
+                <option value="">Select Color</option>
+                <option value="1">D</option>
+                <option value="2">E</option>
+                <option value="3">F</option>
+                <option value="4">G</option>
+                <option value="5">H</option>
+                <option value="6">I</option>
+                <option value="7">J</option>
+            </select>
+
+            <!-- CLARITY DROPDOWN -->
+            <select name="clarity" required>
+                <option value="">Select Clarity</option>
+                <option value="1">I1</option>
+                <option value="2">SI2</option>
+                <option value="3">SI1</option>
+                <option value="4">VS2</option>
+                <option value="5">VS1</option>
+                <option value="6">VVS2</option>
+                <option value="7">VVS1</option>
+                <option value="8">IF</option>
+            </select>
+
+            <!-- DEPTH -->
+            <input type="number" step="0.01" name="depth" placeholder="Depth" required>
+
+            <!-- TABLE -->
+            <input type="number" step="0.01" name="table" placeholder="Table" required>
+
+            <button type="submit">Predict Price</button>
+        </form>
+
+        <a href="{{ url_for('gallery') }}">
+            <button class="back-btn">Back to Gallery</button>
+        </a>
+    </div>
+
+</body>
+</html>
+
